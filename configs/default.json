@@ -1,0 +1,40 @@
+{
+  "base_url": "https://api.deepseek.com",
+  "model": "deepseek-chat",
+  "preview_chars": 3000,
+  "max_bytes": 50000,
+  "default_category": "Unsorted",
+  "category_map": {
+    "Invoices": [
+      "invoice",
+      "发票",
+      "账单"
+    ],
+    "Receipts": [
+      "receipt",
+      "小票"
+    ],
+    "Photos": [
+      "jpg",
+      "png",
+      "photo",
+      "截图"
+    ],
+    "Code": [
+      "py",
+      "js",
+      "ts",
+      "java",
+      "cpp",
+      "go",
+      "rs"
+    ],
+    "Docs": [
+      "pdf",
+      "docx",
+      "pptx",
+      "txt",
+      "md"
+    ]
+  }
+}

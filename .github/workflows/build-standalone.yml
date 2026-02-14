@@ -1,0 +1,41 @@
+name: build-standalone
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        shell: bash
+        run: |
+          python -m pip install -U pip setuptools wheel
+          pip install .
+          pip install pyinstaller
+
+      - name: Build (PyInstaller)
+        shell: bash
+        run: |
+          pyinstaller build/pyinstaller.spec
+
+      - name: Archive artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lfo-webui-${{ matrix.os }}
+          path: dist/lfo-webui/**
