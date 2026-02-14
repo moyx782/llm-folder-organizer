@@ -23,9 +23,13 @@ jobs:
             artifact_name: lfo-webui-windows
             asset_name: lfo-webui-windows-x64.zip
             path_separator: ";"
-          - os: macos-latest
-            artifact_name: lfo-webui-macos
+          - os: macos-13
+            artifact_name: lfo-webui-macos-x64
             asset_name: lfo-webui-macos-x64.tar.gz
+            path_separator: ":"
+          - os: macos-14
+            artifact_name: lfo-webui-macos-arm64
+            asset_name: lfo-webui-macos-arm64.tar.gz
             path_separator: ":"
 
     runs-on: ${{ matrix.os }}
