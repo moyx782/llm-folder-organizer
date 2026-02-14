@@ -5,6 +5,11 @@
 
 > 注意：可执行文件 **跨平台不可通用**。  
 > 你需要分别在 Windows / macOS / Linux 上各自打包一次。
+> 
+> **macOS 注意事项：**
+> - macOS Intel (x64): 在 Intel Mac 上构建（任何 macOS 版本均可）
+> - macOS Apple Silicon (ARM64): 在 M1/M2/M3/M4 Mac 上构建（任何 macOS 版本均可）
+> - 两种架构的可执行文件不通用，取决于 CPU 架构而非 macOS 版本
 
 ## 本地打包（macOS/Linux）
 
@@ -56,4 +61,15 @@ pyinstaller build\pyinstaller.spec
 ## GitHub Actions 自动构建
 
 仓库内已提供 `.github/workflows/build-standalone.yml`，
-会在 push tag 时分别构建 Windows / macOS / Linux 产物并上传为 artifacts。
+会在 push tag 时分别构建 Windows / macOS (x64 + ARM64) / Linux 产物并上传为 artifacts。
+
+**产物包含：**
+- Windows x64
+- Linux x64
+- macOS Intel (x64) - 适用于 Intel Mac
+- macOS Apple Silicon (ARM64) - 适用于 M1/M2/M3/M4 Mac
+
+> **GitHub Actions 说明：**  
+> - `macos-13` runner 使用 Intel x64 架构
+> - `macos-14` runner 使用 Apple Silicon ARM64 架构
+> - 这确保了 CI/CD 能够为两种架构分别构建原生可执行文件

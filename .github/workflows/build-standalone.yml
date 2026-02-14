@@ -11,7 +11,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        include:
+          - os: ubuntu-latest
+            artifact_name: lfo-webui-ubuntu-latest
+          - os: windows-latest
+            artifact_name: lfo-webui-windows-latest
+          - os: macos-13
+            artifact_name: lfo-webui-macos-x64
+          - os: macos-14
+            artifact_name: lfo-webui-macos-arm64
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -37,5 +45,5 @@ jobs:
       - name: Archive artifact
         uses: actions/upload-artifact@v4
         with:
-          name: lfo-webui-${{ matrix.os }}
+          name: ${{ matrix.artifact_name }}
           path: dist/lfo-webui/**
