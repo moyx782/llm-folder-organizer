@@ -72,7 +72,7 @@ lfo web --host 127.0.0.1 --port 8501
 ## 打包（无需 Python 环境运行）
 使用 PyInstaller 生成独立可执行文件。**跨平台需要在各自系统上分别构建**。
 
-> **macOS 用户注意：** Intel Mac 和 Apple Silicon (M1/M2/M3) Mac 需要分别构建对应架构的可执行文件。
+> **macOS 用户注意：** Intel Mac 和 Apple Silicon (M1/M2/M3/M4) Mac 需要分别构建对应架构的可执行文件。
 
 1) 安装打包工具
 ```bash

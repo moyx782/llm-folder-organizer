@@ -8,7 +8,7 @@
 > 
 > **macOS 注意事项：**
 > - macOS Intel (x64): 在 Intel Mac 上构建（任何 macOS 版本均可）
-> - macOS Apple Silicon (ARM64): 在 M1/M2/M3 Mac 上构建（任何 macOS 版本均可）
+> - macOS Apple Silicon (ARM64): 在 M1/M2/M3/M4 Mac 上构建（任何 macOS 版本均可）
 > - 两种架构的可执行文件不通用，取决于 CPU 架构而非 macOS 版本
 
 ## 本地打包（macOS/Linux）
@@ -67,7 +67,7 @@ pyinstaller build\pyinstaller.spec
 - Windows x64
 - Linux x64
 - macOS Intel (x64) - 适用于 Intel Mac
-- macOS Apple Silicon (ARM64) - 适用于 M1/M2/M3 Mac
+- macOS Apple Silicon (ARM64) - 适用于 M1/M2/M3/M4 Mac
 
 > **GitHub Actions 说明：**  
 > - `macos-13` runner 使用 Intel x64 架构
