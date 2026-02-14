@@ -7,9 +7,9 @@
 > 你需要分别在 Windows / macOS / Linux 上各自打包一次。
 > 
 > **macOS 注意事项：**
-> - macOS Intel (x64): 在 Intel Mac 或 macOS 13 及更早版本上构建
-> - macOS Apple Silicon (ARM64): 在 M1/M2/M3 Mac 或 macOS 14 及更新版本上构建
-> - 两种架构的可执行文件不通用，需分别构建
+> - macOS Intel (x64): 在 Intel Mac 上构建（任何 macOS 版本均可）
+> - macOS Apple Silicon (ARM64): 在 M1/M2/M3 Mac 上构建（任何 macOS 版本均可）
+> - 两种架构的可执行文件不通用，取决于 CPU 架构而非 macOS 版本
 
 ## 本地打包（macOS/Linux）
 
@@ -68,3 +68,8 @@ pyinstaller build\pyinstaller.spec
 - Linux x64
 - macOS Intel (x64) - 适用于 Intel Mac
 - macOS Apple Silicon (ARM64) - 适用于 M1/M2/M3 Mac
+
+> **GitHub Actions 说明：**  
+> - `macos-13` runner 使用 Intel x64 架构
+> - `macos-14` runner 使用 Apple Silicon ARM64 架构
+> - 这确保了 CI/CD 能够为两种架构分别构建原生可执行文件
